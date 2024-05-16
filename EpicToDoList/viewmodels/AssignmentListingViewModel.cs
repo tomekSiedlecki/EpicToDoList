@@ -21,6 +21,7 @@ namespace EpicToDoList.viewmodels
         public ICommand MakeAssignmentCommand { get; }
 
 
+
         public AssignmentListingViewModel(AssignmentList assignmentList, NavigationService makeAssignmentNavigationService)
         {
             MakeAssignmentCommand = new NavigateCommand(makeAssignmentNavigationService);

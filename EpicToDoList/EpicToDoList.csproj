@@ -9,8 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\icon.png" />
     <None Remove="assets\nerd-emoji.gif" />
     <None Remove="assets\paprika.gif" />
+    <None Remove="assets\papryki.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,8 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="assets\icon.png" />
     <Resource Include="assets\nerd-emoji.gif" />
     <Resource Include="assets\paprika.gif" />
+    <Resource Include="assets\papryki.jpg" />
   </ItemGroup>
 
 </Project>

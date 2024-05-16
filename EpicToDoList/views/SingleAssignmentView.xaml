@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="EpicToDoList.views.SingleAssignmentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EpicToDoList.views"
+             xmlns:converters="clr-namespace:EpicToDoList.converters"
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:BoolToImageConverter x:Key="boolToImageConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.InputBindings>
+            <MouseBinding Gesture="LeftClick" Command="{Binding ChangeIsCheckedCommand}"/>
+        </Grid.InputBindings>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image x:Name="gifImage" gif:ImageBehavior.AnimatedSource="{Binding IsChecked, Converter={StaticResource boolToImageConverter}}"/>
+        <TextBlock Grid.Column="1" Text="{Binding Content}" FontSize="30" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="0,20,0,20"/>
+            
+    </Grid>
+</UserControl>
