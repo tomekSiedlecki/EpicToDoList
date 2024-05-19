@@ -14,12 +14,14 @@ namespace EpicToDoList.viewmodels
         private readonly NavigationStore _navigationStore;
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
+
         public MainViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
 
             //dodaje do funkcji w kotrej invokuje
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+
         }
 
         private void OnCurrentViewModelChanged()

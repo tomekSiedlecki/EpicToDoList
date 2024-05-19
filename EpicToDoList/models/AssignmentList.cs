@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EpicToDoList.services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,20 +11,21 @@ namespace EpicToDoList.models
     {
         private List<Assignment> _assignments;
 
+
         public void AddAssignment(Assignment newAssignment)
         {
             _assignments.Add(newAssignment);
         }
 
-        public IEnumerable<Assignment> GetAllReservations()
+        public IEnumerable<Assignment> GetAllAssignments()
         {
             return _assignments;
         }
 
 
-        public AssignmentList()
+        public AssignmentList(IEnumerable<Assignment> assignments)
         {
-            _assignments = new List<Assignment>();
+            _assignments = assignments.ToList();
         }
     }
 }

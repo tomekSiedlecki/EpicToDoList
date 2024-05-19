@@ -7,10 +7,9 @@
         
         xmlns:views="clr-namespace:EpicToDoList.views"
         xmlns:viewModels="clr-namespace:EpicToDoList.viewmodels"
-        
-        mc:Ignorable="d"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         Title="MainWindow" Height="450" Width="800"
-        Icon="assets/icon.png">
+        Icon="/assets/icon.ico">
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type viewModels:MakeAssignmentViewModel}">
@@ -21,5 +20,12 @@
             </DataTemplate>
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}"/>
+
+
+
+        <tb:TaskbarIcon
+      IconSource="/assets/icon.ico"
+      ToolTipText="epic to do list">
+            </tb:TaskbarIcon>
     </Grid>
 </Window>

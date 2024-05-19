@@ -34,7 +34,7 @@ namespace EpicToDoList.viewmodels
         private void UpdateAssignments()
         {
             _assignments.Clear();
-            foreach (Assignment assignment in _assignmentList.GetAllReservations())
+            foreach (Assignment assignment in _assignmentList.GetAllAssignments())
             {
                 //tworze nowy viemodel bo observable collection pracuej na viewmodelach
                 AssignmentViewModel newAssignmentViewModel = new AssignmentViewModel(assignment);

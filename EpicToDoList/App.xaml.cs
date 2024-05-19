@@ -2,9 +2,8 @@
 using EpicToDoList.services;
 using EpicToDoList.stores;
 using EpicToDoList.viewmodels;
-using System.Configuration;
-using System.Data;
 using System.Windows;
+
 
 namespace EpicToDoList
 {
@@ -16,9 +15,12 @@ namespace EpicToDoList
         private readonly AssignmentList assignmentList;
         private readonly NavigationStore navigationStore;
 
+        private readonly DbService service;
+
         public App()
         {
-            assignmentList = new AssignmentList();
+            service = new DbService();
+            assignmentList = new AssignmentList(service.GetAllAssignments());
             navigationStore = new NavigationStore();
         }
         protected override void OnStartup(StartupEventArgs e)
@@ -31,6 +33,12 @@ namespace EpicToDoList
             MainWindow.Show();
 
             base.OnStartup(e);
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            service.SaveAssignments(assignmentList.GetAllAssignments());
+            base.OnExit(e);
         }
 
         private MakeAssignmentViewModel CreateMakeAssignmentViewModel()
