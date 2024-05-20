@@ -18,6 +18,8 @@ namespace EpicToDoList.viewmodels
 
         public IEnumerable<AssignmentViewModel> Assignments => _assignments;
 
+        public FooterViewModel footerViewModel { get; set; }
+
         public ICommand MakeAssignmentCommand { get; }
 
 
@@ -25,10 +27,12 @@ namespace EpicToDoList.viewmodels
         public AssignmentListingViewModel(AssignmentList assignmentList, NavigationService makeAssignmentNavigationService)
         {
             MakeAssignmentCommand = new NavigateCommand(makeAssignmentNavigationService);
+            footerViewModel = new FooterViewModel(assignmentList);
 
             _assignmentList = assignmentList;
             _assignments = new ObservableCollection<AssignmentViewModel>();
             UpdateAssignments();
+
         }
 
         private void UpdateAssignments()
@@ -37,7 +41,7 @@ namespace EpicToDoList.viewmodels
             foreach (Assignment assignment in _assignmentList.GetAllAssignments())
             {
                 //tworze nowy viemodel bo observable collection pracuej na viewmodelach
-                AssignmentViewModel newAssignmentViewModel = new AssignmentViewModel(assignment);
+                AssignmentViewModel newAssignmentViewModel = new AssignmentViewModel(assignment, footerViewModel);
                 //zapisanie do obesrable collection
                 _assignments.Add(newAssignmentViewModel);
             }

@@ -9,10 +9,10 @@
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Foreground="Green" FontSize="20">Zrobione:</TextBlock>
-            <TextBlock Foreground="black" FontSize="20">12</TextBlock>
+            <TextBlock Foreground="black" FontSize="20" Text="{Binding Done}" Margin="10,0,0,0"/>
 
             <TextBlock Foreground="Red" FontSize="20" Margin="40,0,0,0">Nie zrobione:</TextBlock>
-            <TextBlock Foreground="black" FontSize="20">10</TextBlock>
+            <TextBlock Foreground="black" FontSize="20" Text="{Binding NotDone}"  Margin="10,0,0,0"/>
 
             <TextBlock Foreground="black" FontSize="20" Margin="40,0,0,0">Losowa emotka:</TextBlock>
             <TextBlock Foreground="black" FontSize="20">😻</TextBlock>

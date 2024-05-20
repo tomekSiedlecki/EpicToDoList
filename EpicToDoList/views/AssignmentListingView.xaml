@@ -50,6 +50,6 @@
                 </ListBox.ItemTemplate>
         </ListView>
 
-        <local:FooterView Grid.Row="2"></local:FooterView>
+        <local:FooterView Grid.Row="2" DataContext="{Binding footerViewModel}"></local:FooterView>
     </Grid>
 </UserControl>

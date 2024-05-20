@@ -24,17 +24,20 @@ namespace EpicToDoList.viewmodels
                 {
                     _assignment.IsChecked = value;
                     OnPropertyChanged(nameof(IsChecked));
+                    footerViewModel.UpdateDoneValues();
                 }
             }
         }
 
         public ICommand ChangeIsCheckedCommand { get; }
 
+        public FooterViewModel footerViewModel { get; }
 
-        public AssignmentViewModel(Assignment assignment)
+        public AssignmentViewModel(Assignment assignment, FooterViewModel footerViewModel)
         {
             _assignment = assignment;
             ChangeIsCheckedCommand = new AssignmentClickCommand(this);
+            this.footerViewModel = footerViewModel;
         }
     }
 }
