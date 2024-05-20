@@ -13,6 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="5,5,5,5">
@@ -22,7 +23,12 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0" x:Name="gifImage" gif:ImageBehavior.AnimatedSource="../assets/nerd-emoji.gif"/>
+            <Image  Grid.Column="0">
+                <Image.Source>
+                    <BitmapImage DecodePixelWidth="200"  
+        UriSource="../assets/icon.png" />
+                </Image.Source>
+            </Image>
             <TextBlock Grid.Column="1" Text="Witam ciebie" FontSize="30" VerticalAlignment="Center" Margin="5,0,0,0"/>
             <Button Grid.Column="2" Command="{Binding MakeAssignmentCommand}" MaxWidth="130" Padding="5,5,5,5" MaxHeight="30" HorizontalAlignment="Right" Margin="0,0,5,0">dodaj zadanie</Button>
         </Grid>
@@ -43,5 +49,7 @@
                 </DataTemplate>
                 </ListBox.ItemTemplate>
         </ListView>
+
+        <local:FooterView Grid.Row="2"></local:FooterView>
     </Grid>
 </UserControl>
